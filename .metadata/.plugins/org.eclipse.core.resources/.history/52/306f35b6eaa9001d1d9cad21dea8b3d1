@@ -21,6 +21,12 @@ public class BrandService implements DatabaseService<DbBrand>{
 	}
 
 	@Override
+	public DbBrand create(DbBrand model) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public DbBrand update(DbBrand model) {
 		// TODO Auto-generated method stub
 		return null;
