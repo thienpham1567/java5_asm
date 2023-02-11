@@ -10,29 +10,33 @@ import com.asm.interfaces.DatabaseService;
 import com.asm.repository.ProductRepository;
 
 @Service
-public class ProductService implements DatabaseService<DbProduct>{
+public class ProductService implements DatabaseService{
 	@Autowired
 	private ProductRepository repo;
-
-	@Override
-	public List<DbProduct> getAll() {
+	
+	public List<DbProduct> getAllProducts(){
 		return repo.findAll();
 	}
 
 	@Override
-	public DbProduct findById(int id) {
+	public List getAll(boolean isSort) {
+		return repo.findAll();
+	}
+
+	@Override
+	public Object findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DbProduct create(DbProduct product) {
+	public Object create(Object model) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DbProduct update(DbProduct product) {
+	public Object update(Object model) {
 		// TODO Auto-generated method stub
 		return null;
 	}
