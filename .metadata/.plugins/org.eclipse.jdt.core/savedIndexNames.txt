@@ -38,7 +38,6 @@ INDEX VERSION 1.131+D:\java5_asm\.metadata\.plugins\org.eclipse.jdt.core
 1285744187.index
 248866398.index
 2068336872.index
-1211939659.index
 2756128363.index
 2542962615.index
 1932063159.index
