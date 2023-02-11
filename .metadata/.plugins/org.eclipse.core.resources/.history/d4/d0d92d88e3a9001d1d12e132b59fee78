@@ -21,11 +21,6 @@ public class SpringWebConfig implements WebMvcConfigurer {
 	@Autowired
 	private ApplicationContext applicationContext;
 
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-	}
-
 	@Bean
 	public SpringResourceTemplateResolver templateResolver() {
 		// SpringResourceTemplateResolver automatically integrates with Spring's own
