@@ -1,6 +1,7 @@
 package com.asm.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.asm.entities.DbBrand;
 import com.asm.interfaces.DatabaseService;
@@ -14,7 +15,7 @@ public class BrandService implements DatabaseService<DbBrand>{
 	}
 
 	@Override
-	public DbBrand findById(int id) {
+	public Optional<DbBrand> findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
