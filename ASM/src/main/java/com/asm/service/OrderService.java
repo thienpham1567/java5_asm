@@ -28,16 +28,10 @@ public class OrderService implements DatabaseService<DbOrder>{
 		return dbUser;
 	}
 
-	@Override
-	public DbOrder create(DbOrder model) {
-		repo.save(model);
-		return model;
-	}
 
 	@Override
 	public DbOrder update(DbOrder model) {
-		repo.save(model);
-		return null;
+		return repo.save(model);
 	}
 
 	@Override
