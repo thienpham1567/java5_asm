@@ -25,10 +25,15 @@ public class ProductService implements DatabaseService<DbProduct>{
 		return repo.findById(id);
 	}
 
-	// update : update if found, otherwise insert
+	@Override
+	public DbProduct create(DbProduct product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	@Override
 	public DbProduct update(DbProduct product) {
-		DbProduct updateProduct = repo.findById(id);
+		// TODO Auto-generated method stub
 		return null;
 	}
 
