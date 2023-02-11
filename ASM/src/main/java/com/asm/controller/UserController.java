@@ -24,9 +24,4 @@ public class UserController {
 	public String index(final Model model) {
 		return "/user/index";
 	}
-	
-	@ModelAttribute("products")
-	public List<DbProduct> getAllProducts(){
-		return productService.getAllProducts();
-	}
 }
