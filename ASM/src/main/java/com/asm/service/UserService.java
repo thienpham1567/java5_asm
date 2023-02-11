@@ -29,14 +29,8 @@ public class UserService implements DatabaseService<DbUser> {
 	}
 
 	@Override
-	public DbUser create(DbUser model) {
+	public DbUser update(DbUser model) {	
 		return repo.save(model);
-	}
-
-	@Override
-	public DbUser update(DbUser model) {
-		repo.save(model);
-		return null;
 	}
 
 	@Override
