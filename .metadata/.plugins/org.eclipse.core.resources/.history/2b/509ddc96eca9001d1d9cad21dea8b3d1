@@ -36,9 +36,7 @@ public class BrandService implements DatabaseService<DbBrand>{
 	public void delete(int id) {
 		boolean exists = productRepo.existsById(id);
 		if(exists) {
-			System.out.println("Cannot delete id " + id);
-		}else {
-			repo.deleteById(id);
+			
 		}
 	}
 	
