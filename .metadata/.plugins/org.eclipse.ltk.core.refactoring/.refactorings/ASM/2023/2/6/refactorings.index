@@ -2,3 +2,10 @@
 1676092688922	Delete element
 1676093814199	Move folder
 1676094007713	Move folder
+1676100646150	Rename package 'com.asm.dao'
+1676100658180	Rename type 'BrandDAO'
+1676100669567	Rename type 'OrderDAO'
+1676100673408	Rename type 'OrderDetailDAO'
+1676100678041	Rename type 'OrderStatusDAO'
+1676100681728	Rename type 'ProductDAO'
+1676100685353	Rename type 'UserDAO'
