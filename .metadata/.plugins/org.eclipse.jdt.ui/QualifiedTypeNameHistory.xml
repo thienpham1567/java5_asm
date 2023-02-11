@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="com.asm.models.Product"/>
+    <fullyQualifiedTypeName name="org.hibernate.criterion.Example"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.Example"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.Sort"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.asm.repository.ProductRepository"/>
+    <fullyQualifiedTypeName name="com.asm.entities.DbProduct"/>
+    <fullyQualifiedTypeName name="com.asm.service.ProductService"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.asm.interfaces.DatabaseService"/>
+    <fullyQualifiedTypeName name="com.asm.entities.DbBrand"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
 </qualifiedTypeNameHistroy>
