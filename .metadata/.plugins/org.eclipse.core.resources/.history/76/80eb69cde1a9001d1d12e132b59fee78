@@ -1,0 +1,7 @@
+package com.asm.interfaces;
+
+import java.util.List;
+
+public interface DatabaseService<T> {
+	public List<T> getAll(boolean isSort);
+}
