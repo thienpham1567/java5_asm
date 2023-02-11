@@ -39,9 +39,7 @@ public class ProductService implements DatabaseService<DbProduct>{
 
 	@Override
 	public void delete(int id) {
-		boolean exists = repo.existsById(id);
-		if(exists) {
-			repo.deleteById(id);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 }
