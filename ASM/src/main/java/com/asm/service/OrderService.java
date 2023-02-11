@@ -19,8 +19,7 @@ public class OrderService implements DatabaseService<DbOrder>{
 
 	@Override
 	public java.util.List<DbOrder> getAll(boolean isSort) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.findAll();
 	}
 
 	@Override
