@@ -6,7 +6,6 @@ import java.util.Optional;
 public interface DatabaseService<T> {
 	public List<T> getAll(boolean isSort);
 	public Optional<T> findById(int id);
-	public T create(T model);
 	public T update(T model);
 	public void delete(int id);
 }
