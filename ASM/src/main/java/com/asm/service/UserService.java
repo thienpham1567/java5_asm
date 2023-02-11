@@ -30,8 +30,7 @@ public class UserService implements DatabaseService<DbUser> {
 
 	@Override
 	public DbUser create(DbUser model) {
-		repo.save(model);
-		return null;
+		return repo.save(model);
 	}
 
 	@Override
