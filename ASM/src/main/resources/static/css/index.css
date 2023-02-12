@@ -1,0 +1,51 @@
+@charset "ISO-8859-1";
+
+html {
+  min-height: 100%;
+  min-width: 100%;
+}
+
+body{
+  font-family: "Nunito", sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+.bg-dark-grey {
+  background-color: rgb(15, 15, 15);
+}
+
+.product > .bg-img > img {
+  width: 40rem;
+}
+
+.cart {
+  margin: 0 10rem;
+}
+
+.cart-img {
+  width: 10.5rem;
+}
+
+.order-item {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgb(232, 232, 232);
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.sub-summary {
+  display: flex;
+  justify-content: space-between;
+}
+
+.has-border-b {
+  border-bottom: 1px solid rgb(232, 232, 232);
+}

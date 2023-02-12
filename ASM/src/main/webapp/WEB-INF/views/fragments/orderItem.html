@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Product</title>
+</head>
+<body>
+	<div class="order-item" th:fragment="orderItem">
+		<div class="d-flex align-items-start justify-content-between gap-4">
+			<img
+				src="https://imgs.search.brave.com/ZjF8UWygY8FYbZn4exvMd1AzhaP906fKKdl4tt_cHgE/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5w/SUs3X2lucDF0SDU1/RUVxdzZkNHVnSGFI/YSZwaWQ9QXBp"
+				alt="" class="cart-img shadow-sm" />
+			<div class="">
+				<p class="fs-5">Nike Court Legacy Lift</p>
+				<p class="text-black-50">Women's</p>
+				<div class="d-flex gap-1 mt-2">
+					<p class="text-black-50">Quantity</p>
+					<select class="form-select w-50 p-0 ps-2"
+						aria-label="Default select example">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+				<div class="d-flex align-items-center gap-3 mt-5 fs-5">
+					<a href="" class="text-black"><i class="fa-regular fa-heart"></i></a>
+					<a href="" class="text-black"><i
+						class="fa-regular fa-trash-can"></i></a>
+				</div>
+			</div>
+		</div>
+		<p>$22.00</p>
+	</div>
+</body>
+</html>

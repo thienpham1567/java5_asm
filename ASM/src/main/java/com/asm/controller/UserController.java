@@ -21,7 +21,7 @@ public class UserController {
 	ProductService productService;
 	
 	@GetMapping("/")
-	public String index(final Model model) {
+	public String getUserPage(final Model model) {
 		return "/user/index";
 	}
 }
