@@ -2,18 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link th:href="@{/css/index.css}" rel="stylesheet" />
 <title>Product</title>
 </head>
 <body>
-	<div class="col shadow-sm p-3 text-center" th:fragment="product">
+	<div style="min-height:21rem" class="shadow-sm p-3 text-center" th:fragment="product(product)" th:assert="${!#strings.isEmpty(product)}">
 		<img
-			src="https://imgs.search.brave.com/ZjF8UWygY8FYbZn4exvMd1AzhaP906fKKdl4tt_cHgE/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5w/SUs3X2lucDF0SDU1/RUVxdzZkNHVnSGFI/YSZwaWQ9QXBp"
-			alt="" />
+			th:src="@{'/img/'+${product.image}}" style="width:14rem; height:14rem"/>
 		<div class="d-flex justify-content-between align-items-center">
-			<p class="fs-5">Nike air</p>
+			<p class="fs-6" th:text="${product.name}"></p>
 			<p class="text-success">In stock</p>
 		</div>
-		<p class="text-start">$20.00</p>
+		<p class="text-start" th:text="${product.price}"></p>
 	</div>
 </body>
 </html>

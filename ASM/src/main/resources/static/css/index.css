@@ -17,6 +17,11 @@ p {
   background-color: rgb(15, 15, 15);
 }
 
+.product-img{
+	width: 14rem;
+}
+
+
 .product > .bg-img > img {
   width: 40rem;
 }

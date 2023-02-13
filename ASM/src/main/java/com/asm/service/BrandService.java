@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.asm.entities.DbBrand;
 import com.asm.interfaces.DatabaseService;
 import com.asm.repository.BrandRepository;
 import com.asm.repository.ProductRepository;
 
+@Service
 public class BrandService implements DatabaseService<DbBrand>{
 	@Autowired
 	private BrandRepository repo;

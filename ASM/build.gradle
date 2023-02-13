@@ -25,6 +25,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '10.2.0.jre11'
+	// https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+	implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.6.14.Final'
 	// https://mvnrepository.com/artifact/org.webjars/bootstrap
 	implementation group: 'org.webjars', name: 'bootstrap', version: '5.2.3'
 	// https://mvnrepository.com/artifact/org.webjars/jquery

@@ -14,7 +14,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -28,4 +27,28 @@ public class DbBrand implements Serializable{
 	
 	@OneToMany(mappedBy = "brand")
 	List<DbProduct> products;
+
+	public int getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId(int brandId) {
+		this.brandId = brandId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<DbProduct> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<DbProduct> products) {
+		this.products = products;
+	}
 }

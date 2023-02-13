@@ -5,7 +5,7 @@
 <title>Header</title>
 </head>
 <body>
-	<div th:fragment="header">
+	<div th:fragment="header(brands)" th:assert="${!#strings.isEmpty(brands)}">
 		<header class="row justify-content-center align-content-center pb-5">
 			<div
 				class="col d-flex justify-content-start align-items-center gap-4">
@@ -16,11 +16,9 @@
 					<a class="dropdown-toggle text text-decoration-none text-dark"
 						href="#" role="button" data-bs-toggle="dropdown"
 						aria-expanded="false"> Brands </a>
-
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
+					<ul th:each="brand : ${brands}" class="dropdown-menu">
+						
+						<li><a class="dropdown-item" href="#" th:text="${brand.name}"></a></li>
 					</ul>
 				</div>
 			</div>
