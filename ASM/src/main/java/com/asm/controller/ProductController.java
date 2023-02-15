@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.asm.entities.DbBrand;
 import com.asm.entities.DbProduct;
-import com.asm.models.Product;
 import com.asm.repository.ProductRepository;
 import com.asm.service.BrandService;
 import com.asm.service.ProductService;
@@ -31,10 +30,10 @@ public class ProductController {
 		return "/user/index";
 	}
 	
-	@GetMapping("/product/{id}")
+	@GetMapping("/products/{id}")
 	public String getProduct(@PathVariable("id") int id, Model model) {
 		Optional<DbProduct> product = productService.findById(id);
-		model.addAttribute("prouct", product.get());
+		model.addAttribute("product", product.get());
 		return "/product/index";
 	}
 	

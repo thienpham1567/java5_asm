@@ -11,14 +11,13 @@
 </head>
 <body>
 	<div class="p-5">
-		<div th:replace="~{layout/header :: header(brands=${brands})}"></div>
+		<div th:replace="~{layout/header :: header}"></div>
 		<div class="text-center">
 			<p class="m-0 display-1 p-5">Shoes</p>
 		</div>
 		<div class="pt-5">
-			<div
-				class="row align-items-centergap-4">
-				<div class="col-3" th:each="product : ${products}">
+			<div class="row align-items-center gap-4">
+				<div class="col" th:each="product : ${products}">
 					<div
 						th:replace="~{fragments/product :: product(product=${product})}"></div>
 				</div>
@@ -42,6 +41,10 @@
 	</div>
 	</div>
 	<div th:replace="~{layout/footer :: footer}"></div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+		crossorigin="anonymous"></script>
 	<script type="text/javascript"
 		th:src="@{/webjars/jquery/3.6.1/jquery.min.js}"></script>
 	<script type="text/javascript"

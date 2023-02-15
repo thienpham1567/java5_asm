@@ -6,14 +6,18 @@
 <title>Product</title>
 </head>
 <body>
-	<div style="min-height:21rem" class="shadow-sm p-3 text-center" th:fragment="product(product)" th:assert="${!#strings.isEmpty(product)}">
-		<img
-			th:src="@{'/img/'+${product.image}}" style="width:14rem; height:14rem"/>
-		<div class="d-flex justify-content-between align-items-center">
-			<p class="fs-6" th:text="${product.name}"></p>
-			<p class="text-success">In stock</p>
-		</div>
-		<p class="text-start" th:text="${product.price}"></p>
+	<div style="min-height: 21rem" class="shadow-sm p-3 text-center"
+		th:fragment="product(product)"
+		th:assert="${!#strings.isEmpty(product)}">
+		<a class="text-decoration-none" th:href="@{'/products/'+${product.productId}}"> <img
+			th:src="@{'/img/'+${product.image}}"
+			style="width: 14rem; height: 14rem" />
+			<div class="d-flex justify-content-between align-items-center">
+				<p class="fs-6 text-start text-black" th:text="${product.name}"></p>
+				<p class="text-success">In stock</p>
+			</div>
+			<p class="text-start text-black" th:text="${product.price}"></p>
+		</a>
 	</div>
 </body>
 </html>
