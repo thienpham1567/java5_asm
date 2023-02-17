@@ -51,4 +51,68 @@ public class DbOrder implements Serializable{
 	
 	@OneToMany(mappedBy = "order")
 	List<DbOrderDetail> orderDetails;
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getOrderAddress() {
+		return orderAddress;
+	}
+
+	public void setOrderAddress(String orderAddress) {
+		this.orderAddress = orderAddress;
+	}
+
+	public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
+	}
+
+	public Date getUpdated() {
+		return updated;
+	}
+
+	public void setUpdated(Date updated) {
+		this.updated = updated;
+	}
+
+	public Double getOrderAmount() {
+		return orderAmount;
+	}
+
+	public void setOrderAmount(Double orderAmount) {
+		this.orderAmount = orderAmount;
+	}
+
+	public DbUser getUser() {
+		return user;
+	}
+
+	public void setUser(DbUser user) {
+		this.user = user;
+	}
+
+	public DbOrderStatus getOrdersStatus() {
+		return ordersStatus;
+	}
+
+	public void setOrdersStatus(DbOrderStatus ordersStatus) {
+		this.ordersStatus = ordersStatus;
+	}
+
+	public List<DbOrderDetail> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List<DbOrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
+	}
 }

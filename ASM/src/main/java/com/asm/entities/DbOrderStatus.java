@@ -27,4 +27,28 @@ public class DbOrderStatus implements Serializable{
 	
 	@OneToMany(mappedBy = "ordersStatus")
 	List<DbOrder> orders;
+
+	public int getOrdersStatusId() {
+		return ordersStatusId;
+	}
+
+	public void setOrdersStatusId(int ordersStatusId) {
+		this.ordersStatusId = ordersStatusId;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<DbOrder> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<DbOrder> orders) {
+		this.orders = orders;
+	}
 }
