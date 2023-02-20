@@ -23,7 +23,7 @@ public class DbOrderDetail implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int orderDetailId;
 	
-	Double detailPrice;
+	double detailPrice;
 	int quantity;
 	
 	@ManyToOne
@@ -43,7 +43,7 @@ public class DbOrderDetail implements Serializable{
 	}
 
 	public Double getDetailPrice() {
-		return detailPrice;
+		return product.getPrice() * this.quantity;
 	}
 
 	public void setDetailPrice(Double detailPrice) {
