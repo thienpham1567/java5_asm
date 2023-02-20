@@ -50,6 +50,12 @@ public class CartController {
 		return new RedirectView("/cart");
 	}
 	
+	@PostMapping("/update-item/{orderDetailId}")
+	public void updateItemInCart(@PathVariable("orderDetailId") int id, final Model model) {
+		DbOrderDetail item = orderDetailService.findById(id).get();
+		
+	}
+	
 	@ModelAttribute("productsInCart")
 	public Collection<DbOrderDetail> getCart(){
 		return cartService.getOrder();

@@ -15,7 +15,7 @@
 				<p class="text-black-50">Women's</p>
 				<div class="d-flex gap-1 mt-2">
 					<p class="text-black-50">Quantity</p>
-					<form th:action="@{/}" th:object="${item}" method="post">
+					<form th:action="@{'/update-item/'+${item.getOrderDetailId()}}" th:object="${item}" method="post">
 						<select class="form-select w-50 p-0 ps-2" th:field="*{quantity}">
 							<option th:each="value : ${10}" th:value="${value}" th:text="${value}"></option>
 						</select>
