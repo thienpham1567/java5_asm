@@ -5,16 +5,15 @@
 <title>Product</title>
 </head>
 <body>
-	<div class="order-item" th:fragment="orderItem">
+	<div class="order-item" th:fragment="orderItem(item)" th:assert="${!#strings.isEmpty(item)}">
 		<div class="d-flex align-items-start justify-content-between gap-4">
-			<img
-				src="https://imgs.search.brave.com/ZjF8UWygY8FYbZn4exvMd1AzhaP906fKKdl4tt_cHgE/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5w/SUs3X2lucDF0SDU1/RUVxdzZkNHVnSGFI/YSZwaWQ9QXBp"
+			<img th:src="@{'/img/'+${item.getProduct().getImage()}}"
 				alt="" class="cart-img shadow-sm" />
 			<div class="">
-				<p class="fs-5">Nike Court Legacy Lift</p>
+				<p class="fs-5" th:text="${item.getProduct().getName()}"></p>
 				<p class="text-black-50">Women's</p>
 				<div class="d-flex gap-1 mt-2">
-					<p class="text-black-50">Quantity</p>
+					<p class="text-black-50" th:text="${item.getQuantity()}"></p>
 					<select class="form-select w-50 p-0 ps-2"
 						aria-label="Default select example">
 						<option value="1">1</option>
@@ -22,6 +21,11 @@
 						<option value="3">3</option>
 						<option value="4">4</option>
 						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
 					</select>
 				</div>
 				<div class="d-flex align-items-center gap-3 mt-5 fs-5">
@@ -31,7 +35,6 @@
 				</div>
 			</div>
 		</div>
-		<p>$22.00</p>
 	</div>
 </body>
 </html>

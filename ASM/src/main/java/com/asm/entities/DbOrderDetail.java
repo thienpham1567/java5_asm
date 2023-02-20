@@ -23,7 +23,7 @@ public class DbOrderDetail implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int orderDetailId;
 	
-	Double detailPrice;
+	double detailPrice;
 	int quantity;
 	
 	@ManyToOne
@@ -33,5 +33,44 @@ public class DbOrderDetail implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "productId")
 	DbProduct product;
-	
+
+	public int getOrderDetailId() {
+		return orderDetailId;
+	}
+
+	public void setOrderDetailId(int orderDetailId) {
+		this.orderDetailId = orderDetailId;
+	}
+
+	public Double getDetailPrice() {
+		return product.getPrice() * this.quantity;
+	}
+
+	public void setDetailPrice(Double detailPrice) {
+		this.detailPrice = detailPrice;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public DbOrder getOrder() {
+		return order;
+	}
+
+	public void setOrder(DbOrder order) {
+		this.order = order;
+	}
+
+	public DbProduct getProduct() {
+		return product;
+	}
+
+	public void setProduct(DbProduct product) {
+		this.product = product;
+	}
 }
