@@ -1,9 +1,11 @@
 package com.asm.service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,6 @@ public class CartService implements ICartService {
 	@Override
 	public void add(int quantity, DbProduct product) {
 		DbOrderDetail orderDetail = new DbOrderDetail();
-
 		if (this.map.containsKey(product.getProductId())) {
 			this.update(product.getProductId(), quantity);
 		} else {
@@ -35,7 +36,8 @@ public class CartService implements ICartService {
 
 	@Override
 	public void update(int productId, int quantity) {
-		map.get(productId).setQuantity(quantity);
+		DbOrderDetail orderDetail = map.get(productId);
+		orderDetail.setQuantity(quantity + orderDetail.getQuantity());
 	}
 
 	@Override

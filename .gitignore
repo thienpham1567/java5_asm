@@ -23,3 +23,16 @@
 hs_err_pid*
 replay_pid*
 /.metadata/
+.metadata/.plugins/org.eclipse.buildship.core/project-preferences/ASM
+.metadata/.plugins/org.eclipse.buildship.core/project-preferences/ASM
+*.snap
+*.index
+*.dat
+*.resources
+*.prefs
+*.xml
+.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps
+*.txt
+*.xml
+*.png
+*.ini

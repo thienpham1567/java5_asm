@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.asm.service.CartService;
 import com.asm.service.OrderDetailService;
@@ -37,16 +38,16 @@ public class CartController {
 	public String getCartPage(final Model model) {
 		Collection<DbOrderDetail> list = cartService.getOrder();
 		model.addAttribute("cart", list);
+		model.addAttribute("total", cartService.getAmount());
+		model.addAttribute("values", 10);
 		return "/cart/index";
 	}
 	
 	@GetMapping("/add-product/{productId}")
-	public String addProductToCart(@PathVariable("productId") int id,final Model model) {
+	public RedirectView addProductToCart(@PathVariable("productId") int id,final Model model) {
 		DbProduct p = productService.findById(id).get();
 		cartService.add(1, p);
-		Collection<DbOrderDetail> list = cartService.getOrder();
-		model.addAttribute("cart", list);
-		return "/cart/index";
+		return new RedirectView("/cart");
 	}
 	
 	@ModelAttribute("productsInCart")

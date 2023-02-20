@@ -5,36 +5,30 @@
 <title>Product</title>
 </head>
 <body>
-	<div class="order-item" th:fragment="orderItem(item)" th:assert="${!#strings.isEmpty(item)}">
+	<div class="order-item" th:fragment="orderItem(item)"
+		th:assert="${!#strings.isEmpty(item)}">
 		<div class="d-flex align-items-start justify-content-between gap-4">
-			<img th:src="@{'/img/'+${item.getProduct().getImage()}}"
-				alt="" class="cart-img shadow-sm" />
+			<img th:src="@{'/img/'+${item.getProduct().getImage()}}" alt=""
+				class="cart-img shadow-sm" />
 			<div class="">
 				<p class="fs-5" th:text="${item.getProduct().getName()}"></p>
 				<p class="text-black-50">Women's</p>
 				<div class="d-flex gap-1 mt-2">
-					<p class="text-black-50" th:text="${item.getQuantity()}"></p>
-					<select class="form-select w-50 p-0 ps-2"
-						aria-label="Default select example">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-					</select>
+					<p class="text-black-50">Quantity</p>
+					<form th:action="@{/}" th:object="${item}" method="post">
+						<select class="form-select w-50 p-0 ps-2" th:field="*{quantity}">
+							<option th:each="value : ${10}" th:value="${value}" th:text="${value}"></option>
+						</select>
+					</form>
 				</div>
 				<div class="d-flex align-items-center gap-3 mt-5 fs-5">
-					<a href="" class="text-black"><i class="fa-regular fa-heart"></i></a>
 					<a href="" class="text-black"><i
+						class="fa-regular fa-heart"></i></a> <a href="" class="text-black"><i
 						class="fa-regular fa-trash-can"></i></a>
 				</div>
 			</div>
 		</div>
+		<p th:text="${item.getDetailPrice()}"></p>
 	</div>
 </body>
 </html>
