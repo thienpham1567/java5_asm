@@ -15,15 +15,19 @@
 				<p class="text-black-50">Women's</p>
 				<div class="d-flex gap-1 mt-2">
 					<p class="text-black-50">Quantity</p>
-					<form th:action="@{'/update-item/'+${item.getOrderDetailId()}}" th:object="${item}" method="post">
-						<select class="form-select w-50 p-0 ps-2" th:field="*{quantity}">
-							<option th:each="value : ${10}" th:value="${value}" th:text="${value}"></option>
-						</select>
-					</form>
+					<p th:text="${item.getQuantity}"></p>
+					<div class="d-flex align-items-center gap-4">
+						<p class="btn">
+							<a th:href="@{'/add-product/'+${item.getProduct().getProductId()}}">+</a>
+						</p>
+						<p class="btn">
+							<a th:href="@{'/reduce-product/'+${item.getProduct().getProductId()}}">-</a>
+						</p>
+					</div>
 				</div>
 				<div class="d-flex align-items-center gap-3 mt-5 fs-5">
+					<a href="" class="text-black"><i class="fa-regular fa-heart"></i></a>
 					<a href="" class="text-black"><i
-						class="fa-regular fa-heart"></i></a> <a href="" class="text-black"><i
 						class="fa-regular fa-trash-can"></i></a>
 				</div>
 			</div>
