@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Cart Page</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+	integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link th:href="@{/webjars/bootstrap/font-awesome/6.2.1/css/all.min.css}"
 	rel="stylesheet" />
 <link th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"
@@ -17,19 +21,12 @@
 				<div class="col-8">
 					<p class="fs-2">Bag</p>
 					<div th:each="orderDetail : ${cart}">
-						<div th:replace="~{fragments/orderItem :: orderItem(item=${orderDetail})}"></div>
+						<div
+							th:replace="~{fragments/orderItem :: orderItem(item=${orderDetail})}"></div>
 					</div>
 				</div>
 				<div class="col-4 ps-3">
 					<p class="fs-2 mb-3">Summary</p>
-					<div class="sub-summary mb-3">
-						<p>Subtotal</p>
-						<span class="text-end">$200.00</span>
-					</div>
-					<div class="sub-summary mb-3">
-						<p>Estimated Delivery & Handling</p>
-						<span class="text-end">Free</span>
-					</div>
 					<div class="has-border-b"></div>
 					<div class="sub-summary my-3">
 						<p>Total</p>
