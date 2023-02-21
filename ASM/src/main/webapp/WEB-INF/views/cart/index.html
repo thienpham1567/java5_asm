@@ -16,9 +16,9 @@
 			<div class="cart row">
 				<div class="col-8">
 					<p class="fs-2">Bag</p>
-					<div th:replace="~{fragments/orderItem :: orderItem}"></div>
-					<div th:replace="~{fragments/orderItem :: orderItem}"></div>
-					<div th:replace="~{fragments/orderItem :: orderItem}"></div>
+					<div th:each="orderDetail : ${cart}">
+						<div th:replace="~{fragments/orderItem :: orderItem(item=${orderDetail})}"></div>
+					</div>
 				</div>
 				<div class="col-4 ps-3">
 					<p class="fs-2 mb-3">Summary</p>
@@ -32,8 +32,8 @@
 					</div>
 					<div class="has-border-b"></div>
 					<div class="sub-summary my-3">
-						<p>Subtotal</p>
-						<span class="text-end">$200.00</span>
+						<p>Total</p>
+						<span class="text-end" th:text="${total} + '$'"></span>
 					</div>
 					<div class="has-border-b"></div>
 					<a href="" class="btn btn-secondary w-100 mt-3">Check out</a>

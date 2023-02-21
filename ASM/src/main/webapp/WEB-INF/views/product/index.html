@@ -20,7 +20,7 @@
 				<div class="col-4">
 					<p class="display-4" th:text="${product.name}"></p>
 					<p class="fs-5">Men's shoes</p>
-					<p class="mt-4" th:text="${product.price}">$20.00</p>
+					<p class="mt-4" th:text="${product.price} + '$'">$20.00</p>
 					<ul class="ps-4">
 						<li class="text-success"><p>In stock</p></li>
 					</ul>
@@ -31,7 +31,7 @@
 						vitae vel nostrum laboriosam inventore consequuntur dolor culpa
 						repellendus nesciunt.
 					</p>
-					<a href="" class="btn btn-outline-secondary w-100">Add to Bag</a>
+					<a th:href="@{'/add-product/'+${product.getProductId()}}" class="btn btn-outline-secondary w-100">Add to Bag</a>
 				</div>
 			</div>
 		</div>

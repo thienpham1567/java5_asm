@@ -5,16 +5,19 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.asm.entities.DbBrand;
 import com.asm.entities.DbProduct;
 import com.asm.repository.ProductRepository;
 import com.asm.service.BrandService;
+import com.asm.service.CartService;
 import com.asm.service.ProductService;
 
 @Controller
@@ -24,6 +27,9 @@ public class ProductController {
 	
 	@Autowired 
 	BrandService brandService;
+	
+	@Autowired
+	CartService cartService;
 	
 	@GetMapping("/")
 	public String getUserPage(final Model model) {
@@ -44,6 +50,8 @@ public class ProductController {
 		model.addAttribute("product", product.get());
 		return "/product/index";
 	}
+	
+	
 	
 	@ModelAttribute("products")
 	public List<DbProduct> getAllProducts(){
