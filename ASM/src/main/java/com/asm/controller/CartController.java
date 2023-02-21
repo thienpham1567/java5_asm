@@ -14,6 +14,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.asm.service.CartService;
 import com.asm.service.OrderDetailService;
 import com.asm.service.OrderService;
+import com.asm.service.OrderStatusService;
 import com.asm.service.ProductService;
 
 import com.asm.entities.*;
@@ -26,6 +27,9 @@ public class CartController {
 	OrderService orderService;
 	
 	@Autowired 
+	OrderStatusService orderStatusService;
+	
+	@Autowired 
 	OrderDetailService orderDetailService;
 	
 	@Autowired
@@ -36,10 +40,9 @@ public class CartController {
 	
 	@GetMapping("/cart")
 	public String getCartPage(final Model model) {
-		Collection<DbOrderDetail> list = cartService.getOrder();
-		model.addAttribute("cart", list);
+		Collection<DbOrderDetail> items = cartService.getOrder();
+		model.addAttribute("cart", items);
 		model.addAttribute("total", cartService.getAmount());
-		model.addAttribute("values", 10);
 		return "/cart/index";
 	}
 	
@@ -55,6 +58,20 @@ public class CartController {
 		DbProduct p = productService.findById(id).get();
 		cartService.add(-1, p);
 		return new RedirectView("/cart");
+	}
+	
+	@GetMapping("/checkout/")
+	public RedirectView checkoutCart(final Model model) {
+		DbOrderStatus orderStatus = orderStatusService.findById(2).get();
+		DbUser currentUser = new DbUser();
+		DbOrder order = new DbOrder();
+		Collection<DbOrderDetail> items = cartService.getOrder();
+		order.setOrderAddress("");
+		order.setUser(currentUser);
+		items.forEach(item -> order.getOrderDetails().add(item));
+		order.setOrdersStatus(orderStatus);
+		orderService.update(order);
+		return new RedirectView("/");
 	}
 	
 	@ModelAttribute("productsInCart")

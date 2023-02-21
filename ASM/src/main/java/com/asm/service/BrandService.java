@@ -43,5 +43,4 @@ public class BrandService implements DatabaseService<DbBrand>{
 			repo.deleteById(id);
 		}
 	}
-	
 }

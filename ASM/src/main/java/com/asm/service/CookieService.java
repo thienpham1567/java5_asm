@@ -46,7 +46,4 @@ public class CookieService {
 	public void remove(String name) {
 		add(name, "", 0);
 	}
-	
-	
-
 }

@@ -37,5 +37,4 @@ public class UserService implements DatabaseService<DbUser> {
 	public void delete(int id) {
 		repo.deleteById(id);	
 	}
-	
 }

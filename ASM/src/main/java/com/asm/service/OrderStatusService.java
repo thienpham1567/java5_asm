@@ -28,8 +28,6 @@ public class OrderStatusService implements DatabaseService<DbOrderStatus>{
 		return orderStatus;
 	}
 
-	
-
 	@Override
 	public DbOrderStatus update(DbOrderStatus model) {
 		
@@ -40,5 +38,4 @@ public class OrderStatusService implements DatabaseService<DbOrderStatus>{
 	public void delete(int id) {
 		repo.deleteById(id);;
 	}
-
 }

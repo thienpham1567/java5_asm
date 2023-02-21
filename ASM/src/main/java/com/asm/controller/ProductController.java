@@ -51,8 +51,6 @@ public class ProductController {
 		return "/product/index";
 	}
 	
-	
-	
 	@ModelAttribute("products")
 	public List<DbProduct> getAllProducts(){
 		return productService.getAll(false);
@@ -62,7 +60,4 @@ public class ProductController {
 	public List<DbBrand> getAllBrands(){ 
 		return brandService.getAll(false);
 	}
-	
-//	@RequestMapping("/brand-name")
-//	public String loadProductByBrandName(Model model, )
 }

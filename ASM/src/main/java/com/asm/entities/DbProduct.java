@@ -123,6 +123,4 @@ public class DbProduct implements Serializable{
 	public void setOrderDetails(List<DbOrderDetail> orderDetails) {
 		this.orderDetails = orderDetails;
 	}
-	
-	
 }

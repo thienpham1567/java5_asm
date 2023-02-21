@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Product</title>
+<title>Order Item</title>
 </head>
 <body>
 	<div class="order-item" th:fragment="orderItem(item)"
@@ -29,9 +29,9 @@
 			<p class="fs-5" th:text="${item.getDetailPrice()}"></p>
 			<div class="btn-group" role="group">
 				<a class="btn btn-outline-secondary"
-					th:href="@{'/add-product/'+${item.getProduct().getProductId()}}">+</a>
-				<a class="btn btn-outline-secondary"
 					th:href="@{'/reduce-product/'+${item.getProduct().getProductId()}}">-</a>
+				<a class="btn btn-outline-secondary"
+					th:href="@{'/add-product/'+${item.getProduct().getProductId()}}">+</a>
 			</div>
 		</div>
 	</div>

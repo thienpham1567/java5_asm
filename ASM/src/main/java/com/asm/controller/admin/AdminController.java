@@ -26,6 +26,4 @@ public class AdminController {
 	public String getAdminOrdersPage() {
 		return "admin/orders";
 	}
-	
-	
 }
