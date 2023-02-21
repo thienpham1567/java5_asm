@@ -38,4 +38,8 @@ public class ProductService implements DatabaseService<DbProduct>{
 			repo.deleteById(id);
 		}
 	}
+	
+	public List<DbProduct> getAllProductByBrandName(String name){
+		return repo.getAllProductByBrandName(name);
+	}
 }

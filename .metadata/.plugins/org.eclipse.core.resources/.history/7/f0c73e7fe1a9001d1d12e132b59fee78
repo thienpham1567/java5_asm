@@ -1,5 +1,0 @@
-package com.asm.interfaces;
-
-public interface DatabaseService {
-
-}

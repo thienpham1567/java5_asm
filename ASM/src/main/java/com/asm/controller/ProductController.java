@@ -30,6 +30,14 @@ public class ProductController {
 		return "/user/index";
 	}
 	
+	// load product by brand name
+	@GetMapping("/brand/{name}")
+	public String getProductByBrandName(@PathVariable("name") String name, Model model) {
+		List<DbProduct> listProduct = productService.getAllProductByBrandName(name);
+		model.addAttribute("products", listProduct);
+		return "/user/index";
+	}
+	
 	@GetMapping("/products/{id}")
 	public String getProduct(@PathVariable("id") int id, Model model) {
 		Optional<DbProduct> product = productService.findById(id);
@@ -46,4 +54,7 @@ public class ProductController {
 	public List<DbBrand> getAllBrands(){ 
 		return brandService.getAll(false);
 	}
+	
+//	@RequestMapping("/brand-name")
+//	public String loadProductByBrandName(Model model, )
 }

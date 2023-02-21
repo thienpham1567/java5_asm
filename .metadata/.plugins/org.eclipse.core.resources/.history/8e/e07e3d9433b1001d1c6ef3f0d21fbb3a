@@ -1,0 +1,13 @@
+package com.asm.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.asm.entities.DbProduct;
+
+public interface ProductRepository extends JpaRepository<DbProduct, Integer>{
+	@Query("SELECT o FROM Brands o INNER JOIN Products u on o.BrandId = u.BrandId where o.Name = ?1")
+	List<DbProduct> getAllProductByBrandName();
+}

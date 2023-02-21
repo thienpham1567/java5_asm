@@ -9,8 +9,9 @@
     <fullyQualifiedTypeName name="com.asm.repository.ProductRepository"/>
     <fullyQualifiedTypeName name="com.asm.entities.DbProduct"/>
     <fullyQualifiedTypeName name="com.asm.service.ProductService"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.asm.interfaces.DatabaseService"/>
     <fullyQualifiedTypeName name="com.asm.entities.DbBrand"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.Pageable"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

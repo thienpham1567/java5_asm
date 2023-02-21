@@ -1,7 +1,0 @@
-package com.asm.service;
-
-import com.asm.interfaces.DatabaseService;
-
-public class BrandService implements DatabaseService<DbBrand>{
-
-}
