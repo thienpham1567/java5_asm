@@ -47,7 +47,7 @@ public class DbOrder implements Serializable {
 	DbUser user;
 
 	@ManyToOne
-	@JoinColumn(name = "orderStatusId")
+	@JoinColumn(name = "ordersStatusId")
 	DbOrderStatus ordersStatus;
 
 	@OneToMany(mappedBy = "order")

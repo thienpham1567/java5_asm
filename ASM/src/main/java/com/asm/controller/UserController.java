@@ -42,9 +42,7 @@ public class UserController {
 
 	@PostMapping("/process_register")
 	public String processRegister(DbUser user) {
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String encodedPassword = passwordEncoder.encode(user.getPassword());
-		user.setPassword(encodedPassword);
+		user.setPassword(HashUtil.hash(user.getPassword()));
 
 		return this.userService.update(user) != null ? "security/register_success" : "";
 	}

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,10 @@ public class UserService implements UserDetailsService, DatabaseService<DbUser> 
 		if(user != null) {
 			isPasswordMatch = HashUtil.verify(password, user.getPassword());
 			if(isPasswordMatch) {
-				cookieService.add("userEmail", user.getEmail(), 1);
+				System.out.print(isPasswordMatch);
+				System.out.print(user.getPassword());
+				Cookie cookie = cookieService.add("userEmail", user.getEmail(), 1);
+				System.out.print(cookie.getValue());
 			}
 		}
 		
@@ -58,6 +62,10 @@ public class UserService implements UserDetailsService, DatabaseService<DbUser> 
 	@Override
 	public Optional<DbUser> findById(int id) {
 		return this.repo.findById(id);
+	}
+	
+	public DbUser findByEmail(String email) {
+		return this.repo.findByEmail(email);
 	}
 
 	@Override

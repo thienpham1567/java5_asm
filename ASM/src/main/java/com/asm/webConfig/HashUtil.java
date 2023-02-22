@@ -1,15 +1,14 @@
 package com.asm.webConfig;
 
-import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 public class HashUtil {
-	public static String hash(String plain) {
+	public static String hash(String password) {
 		String salt = BCrypt.gensalt();
-		return BCrypt.hashpw(plain, salt);
+		return BCrypt.hashpw(password, salt);
 	}
 	
-	public static boolean verify(String plain, String hashed) {
-		return BCrypt.checkpw(plain, hashed);
+	public static boolean verify(String password, String hashed) {
+		return BCrypt.checkpw(password, hashed);
 	}
-
 }
