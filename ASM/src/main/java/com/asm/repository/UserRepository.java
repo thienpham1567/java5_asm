@@ -12,7 +12,7 @@ import com.asm.entities.DbUser;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<DbUser, Long>{
+public interface UserRepository extends JpaRepository<DbUser, Integer>{
 	public DbUser findByEmail(String email);
 //	DbUser findByEmailAndPassword(String email, String password);
 	

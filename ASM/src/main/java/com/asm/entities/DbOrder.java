@@ -1,6 +1,7 @@
 package com.asm.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class DbOrder implements Serializable {
 	DbOrderStatus ordersStatus;
 
 	@OneToMany(mappedBy = "order")
-	List<DbOrderDetail> orderDetails;
+	List<DbOrderDetail> orderDetails = new ArrayList<>();
 
 	public int getOrderId() {
 		return orderId;

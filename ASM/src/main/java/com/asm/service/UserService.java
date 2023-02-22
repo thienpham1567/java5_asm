@@ -18,21 +18,55 @@ import org.springframework.stereotype.Service;
 import com.asm.entities.DbUser;
 import com.asm.interfaces.DatabaseService;
 import com.asm.repository.UserRepository;
+import com.asm.webConfig.HashUtil;
 
 @Service
-public class UserService implements UserDetailsService {
-	
-	@Autowired 
+public class UserService implements UserDetailsService, DatabaseService<DbUser> {
+
+	@Autowired
 	UserRepository repo;
 
-	
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	@Autowired
+	CookieService cookieService;
 
-		DbUser user = repo.findByEmail(username);		
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		DbUser user = repo.findByEmail(username);
 		if (user == null) {
 			throw new UsernameNotFoundException("User not found");
 		}
 		return new CustomUserDetails(user);
+	}
 
+	public DbUser login(String email, String password) {
+		DbUser user = this.repo.findByEmail(email);
+		boolean isPasswordMatch = false;
+		if(user != null) {
+			isPasswordMatch = HashUtil.verify(password, user.getPassword());
+			if(isPasswordMatch) {
+				cookieService.add("userEmail", user.getEmail(), 1);
+			}
+		}
+		
+		return isPasswordMatch ? user : null;
+	}
+
+	@Override
+	public List<DbUser> getAll(boolean isSort) {
+		return this.repo.findAll();
+	}
+
+	@Override
+	public Optional<DbUser> findById(int id) {
+		return this.repo.findById(id);
+	}
+
+	@Override
+	public DbUser update(DbUser model) {
+		return this.repo.save(model);
+	}
+
+	@Override
+	public void delete(int id) {
+		this.repo.deleteById(id);
 	}
 }

@@ -1,6 +1,7 @@
 package com.asm.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -26,7 +27,7 @@ public class DbBrand implements Serializable{
 	String name;
 	
 	@OneToMany(mappedBy = "brand")
-	List<DbProduct> products;
+	List<DbProduct> products = new ArrayList<>();
 
 	public int getBrandId() {
 		return brandId;

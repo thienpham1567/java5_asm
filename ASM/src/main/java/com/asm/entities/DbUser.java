@@ -1,6 +1,7 @@
 package com.asm.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -20,6 +21,28 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "Users")
 public class DbUser implements Serializable{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int userId;
+	
+	private String password;
+	@Column(name = "firstname")
+	private String firstname;
+	@Column(name = "lastname")
+	private String lastName;
+	
+	@Column(unique = true ,nullable = false)
+	private String email;
+	
+	private String image;
+	private String userAddress;
+	boolean isActive;
+	boolean Admin;
+	
+	
+	@OneToMany(mappedBy = "user")
+	List<DbOrder> orders = new ArrayList<>();
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -99,28 +122,4 @@ public class DbUser implements Serializable{
 	public void setOrders(List<DbOrder> orders) {
 		this.orders = orders;
 	}
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int userId;
-	
-	private String password;
-	@Column(name = "firstname")
-	private String firstname;
-	@Column(name = "lastname")
-	private String lastName;
-	
-	@Column(unique = true ,nullable = false)
-	private String email;
-	
-	private String image;
-	
-	private String userAddress;
-	boolean isActive;
-	boolean Admin;
-	
-	
-	@OneToMany(mappedBy = "user")
-	List<DbOrder> orders;
-
 }
