@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.asm.service.CartService;
+import com.asm.service.CookieService;
 import com.asm.service.OrderDetailService;
 import com.asm.service.OrderService;
 import com.asm.service.OrderStatusService;
@@ -41,6 +42,9 @@ public class CartController {
 	@Autowired 
 	UserService userService;
 	
+	@Autowired
+	CookieService cookieService;
+	
 	@GetMapping("/cart")
 	public String getCartPage(final Model model) {
 		Collection<DbOrderDetail> items = cartService.getOrder();
@@ -65,8 +69,10 @@ public class CartController {
 	
 	@GetMapping("/checkout")
 	public RedirectView checkoutCart(final Model model) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String currentEmailUser = authentication.getName();
+		String currentEmailUser = cookieService.getValue("userEmail");
+		if(currentEmailUser.isEmpty()) {
+			return new RedirectView("/login");
+		}
 		DbOrderStatus orderStatus = orderStatusService.findById(2).get();
 		DbUser currentUser = userService.findByEmail(currentEmailUser);
 		DbOrder order = new DbOrder();
@@ -75,10 +81,15 @@ public class CartController {
 		order.setOrdersStatus(orderStatus);
 		Collection<DbOrderDetail> items = cartService.getOrder();
 		orderService.update(order);
-		items.forEach(item -> {
+		double total = 0.0;
+		for(DbOrderDetail item : items) {
+			total += item.getDetailPrice();
+			item.setDetailPrice(item.getDetailPrice());
 			item.setOrder(order);
 			orderDetailService.update(item);
-		});
+		}
+		order.setOrderAmount(total);
+		orderService.update(order);
 		return new RedirectView("/");
 	}
 	

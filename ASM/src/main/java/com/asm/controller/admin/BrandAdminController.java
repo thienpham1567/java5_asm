@@ -41,13 +41,13 @@ public class BrandAdminController {
 		return brandService.getAll(false);
 	}
 	
-	@GetMapping("/admin/brands")
-	public String getAdminBrandsPage(Model model) {
-		model.addAttribute("brands", getAllBrands());
-		model.addAttribute("brand", new DbBrand());
-		
-		return "admin/brands";
-	}
+//	@GetMapping("/admin/brands")
+//	public String getAdminBrandsPage(Model model) {
+//		model.addAttribute("brands", getAllBrands());
+//		model.addAttribute("brand", new DbBrand());
+//		
+//		return "admin/brands";
+//	}
 	
 
 	
