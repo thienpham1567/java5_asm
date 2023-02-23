@@ -38,6 +38,7 @@ public class DbUser implements Serializable{
 	private String image;
 	private String userAddress;
 	boolean isActive;
+	@Column(name = "admin")
 	boolean Admin;
 	
 	

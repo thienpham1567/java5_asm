@@ -30,7 +30,11 @@ public class UserController {
 	@PostMapping("/login")
 	public String login(@RequestParam("email") String email, @RequestParam("password") String password) {
 		DbUser currentUser = this.userService.login(email, password);
-		return currentUser != null ? "/user/index" : "security/login";
+		if(currentUser.isAdmin() == true) {
+			return currentUser != null ? "redirect:/admin" : "redirect:/security/login";
+		}
+		return currentUser != null ? "redirect:/" : "redirect:/security/login";
+		
 	}
 
 	@GetMapping("/register")
