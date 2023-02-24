@@ -1,6 +1,7 @@
 package com.asm.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -26,7 +27,7 @@ public class DbOrderStatus implements Serializable{
 	String description;
 	
 	@OneToMany(mappedBy = "ordersStatus")
-	List<DbOrder> orders;
+	List<DbOrder> orders = new ArrayList<>();
 
 	public int getOrdersStatusId() {
 		return ordersStatusId;

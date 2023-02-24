@@ -1,8 +1,11 @@
 package com.asm.entities;
 
 import java.io.Serializable;
+
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,18 +26,25 @@ public class DbUser implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int userId;
 	
-	String password;
-	String firstname;
-	String lastName;
-	String email;
-	String image;
-	String userAddress;
+	private String password;
+	@Column(name = "firstname")
+	private String firstname;
+	@Column(name = "lastname")
+	private String lastName;
+	
+	@Column(unique = true ,nullable = false)
+	private String email;
+	
+	private String image;
+	private String userAddress;
 	boolean isActive;
+	@Column(name = "admin")
 	boolean Admin;
 	
+	
 	@OneToMany(mappedBy = "user")
-	List<DbOrder> orders;
-
+	List<DbOrder> orders = new ArrayList<>();
+	
 	public int getUserId() {
 		return userId;
 	}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Sign Up</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<link th:href="@{/webjars/bootstrap/font-awesome/6.2.1/css/all.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/index.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="p-5">
+		<div th:replace="~{layout/header :: header}"></div>
+		<div class="p-5">
+			<div class="container text-center">
+				<div>
+					<h1>User Registration - Sign Up</h1>
+				</div>
+				<form th:action="@{/process_register}" th:object="${user}"
+					method="post" style="max-width: 600px; margin: 0 auto;">
+					<div class="m-3">
+						<div class="form-group row">
+							<label class="col-4 col-form-label">E-mail: </label>
+							<div class="col-8">
+								<input type="email" th:field="*{email}" class="form-control"
+									required />
+							</div>
+						</div>
+						<hr>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Password: </label>
+							<div class="col-8">
+								<input type="password" th:field="*{password}"
+									class="form-control" required minlength="6" maxlength="10" />
+							</div>
+						</div>
+						<hr>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">First Name: </label>
+							<div class="col-8">
+								<input type="text" th:field="*{Firstname}" class="form-control"
+									required minlength="2" maxlength="20" />
+							</div>
+						</div>
+						<hr>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Last Name: </label>
+							<div class="col-8">
+								<input type="text" th:field="*{lastName}" class="form-control"
+									required minlength="2" maxlength="20" />
+							</div>
+						</div>
+						<hr>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Address: </label>
+							<div class="col-8">
+								<input type="text" th:field="*{userAddress}"
+									class="form-control" required minlength="2" maxlength="20" />
+							</div>
+						</div>
+						<hr>
+
+
+						<div>
+							<button type="submit" class="btn btn-outline-dark">Đăng
+								ký</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div th:replace="~{layout/footer :: footer}"></div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.6.1/jquery.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
+</body>
+</html>

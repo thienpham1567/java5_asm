@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Success</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<link th:href="@{/webjars/bootstrap/font-awesome/6.2.1/css/all.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/index.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="container text-center">
+		<div th:replace="~{layout/header :: header}"></div>
+		<h3>You have signed up successfully!</h3>
+		<h4>
+			<a th:href="@{/login}">Click here to Login</a>
+		</h4>
+	</div>
+	<div th:replace="~{layout/footer :: footer}"></div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.6.1/jquery.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
+</body>
+</html>

@@ -1,21 +1,19 @@
 package com.asm.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.asm.entities.DbBrand;
 import com.asm.entities.DbProduct;
-import com.asm.repository.ProductRepository;
+
 import com.asm.service.BrandService;
 import com.asm.service.CartService;
 import com.asm.service.ProductService;
@@ -36,6 +34,18 @@ public class ProductController {
 		return "/user/index";
 	}
 	
+	@RequestMapping(path = {"/search"})
+	 public String home(Model model, String keyword) {
+	  if(keyword!=null) {
+	   List<DbProduct> listProduct = productService.getByKeyword(keyword);
+	   System.out.println(productService.getByKeyword(keyword).toString());
+	   model.addAttribute("products", listProduct);
+	  }else {
+	  List<DbProduct> listProduct = productService.getAll(true);
+	  model.addAttribute("products", listProduct);}
+	  return "/user/index";
+	 }
+	
 	// load product by brand name
 	@GetMapping("/brand/{name}")
 	public String getProductByBrandName(@PathVariable("name") String name, Model model) {
@@ -51,8 +61,6 @@ public class ProductController {
 		return "/product/index";
 	}
 	
-	
-	
 	@ModelAttribute("products")
 	public List<DbProduct> getAllProducts(){
 		return productService.getAll(false);
@@ -62,7 +70,4 @@ public class ProductController {
 	public List<DbBrand> getAllBrands(){ 
 		return brandService.getAll(false);
 	}
-	
-//	@RequestMapping("/brand-name")
-//	public String loadProductByBrandName(Model model, )
 }

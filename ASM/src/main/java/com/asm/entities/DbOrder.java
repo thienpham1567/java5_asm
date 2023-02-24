@@ -1,6 +1,7 @@
 package com.asm.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,33 +25,33 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "Orders")
-public class DbOrder implements Serializable{
+public class DbOrder implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int orderId;
-	
+
 	String orderAddress;
-	
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Created")
 	Date created = new Date();
-	
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Updated")
 	Date updated = new Date();
-	
+
 	Double orderAmount;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "userId")
 	DbUser user;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "orderStatusId")
+	@JoinColumn(name = "ordersStatusId")
 	DbOrderStatus ordersStatus;
-	
+
 	@OneToMany(mappedBy = "order")
-	List<DbOrderDetail> orderDetails;
+	List<DbOrderDetail> orderDetails = new ArrayList<>();
 
 	public int getOrderId() {
 		return orderId;
@@ -85,6 +86,10 @@ public class DbOrder implements Serializable{
 	}
 
 	public Double getOrderAmount() {
+		double orderAmount = 0.0;
+		for (DbOrderDetail item : orderDetails) {
+			orderAmount += item.getDetailPrice();
+		}
 		return orderAmount;
 	}
 

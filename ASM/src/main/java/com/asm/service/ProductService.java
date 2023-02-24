@@ -11,7 +11,7 @@ import com.asm.interfaces.DatabaseService;
 import com.asm.repository.ProductRepository;
 
 @Service
-public class ProductService implements DatabaseService<DbProduct>{
+public class ProductService implements DatabaseService<DbProduct> {
 	@Autowired
 	private ProductRepository repo;
 
@@ -34,12 +34,17 @@ public class ProductService implements DatabaseService<DbProduct>{
 	@Override
 	public void delete(int id) {
 		boolean exists = repo.existsById(id);
-		if(exists) {
+		if (exists) {
 			repo.deleteById(id);
 		}
 	}
-	
-	public List<DbProduct> getAllProductByBrandName(String name){
+
+	public List<DbProduct> getAllProductByBrandName(String name) {
 		return repo.getAllProductByBrandName(name);
+	}
+
+
+	public List<DbProduct> getByKeyword(String keyword) {
+		return repo.findByKeyword(keyword);
 	}
 }

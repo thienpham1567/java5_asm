@@ -38,6 +38,7 @@ public class CartService implements ICartService {
 	public void update(int productId, int quantity) {
 		DbOrderDetail orderDetail = map.get(productId);
 		orderDetail.setQuantity(quantity + orderDetail.getQuantity());
+		orderDetail.setDetailPrice(orderDetail.getProduct().getPrice() * orderDetail.getQuantity());
 	}
 
 	@Override

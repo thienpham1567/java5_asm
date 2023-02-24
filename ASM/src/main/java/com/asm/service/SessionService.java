@@ -9,7 +9,10 @@ import org.springframework.stereotype.Service;
 public class SessionService {
 	@Autowired
 	HttpSession session;
-	
+	public <T> T get(String name, T defaultValue) {
+		T value = get(name);
+		return value != null ? value : defaultValue;
+	}
 	public <T>T get(String name){
 		return (T) session.getAttribute(name);	
 	}
@@ -21,6 +24,4 @@ public class SessionService {
 	public void remove(String name) {
 		session.removeAttribute(name);
 	}
-	
-	
 }

@@ -28,8 +28,6 @@ public class OrderDetailService implements DatabaseService<DbOrderDetail>{
 		return orderDetails;
 	}
 
-	
-
 	@Override
 	public DbOrderDetail update(DbOrderDetail model) {
 		return repo.save(model);
@@ -39,5 +37,4 @@ public class OrderDetailService implements DatabaseService<DbOrderDetail>{
 	public void delete(int id) {
 		repo.deleteById(id);;
 	}
-
 }
