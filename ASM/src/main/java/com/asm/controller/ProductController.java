@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.asm.entities.DbBrand;
 import com.asm.entities.DbProduct;
@@ -32,6 +33,18 @@ public class ProductController {
 	public String getUserPage(final Model model) {
 		return "/user/index";
 	}
+	
+	@RequestMapping(path = {"/search"})
+	 public String home(Model model, String keyword) {
+	  if(keyword!=null) {
+	   List<DbProduct> listProduct = productService.getByKeyword(keyword);
+	   System.out.println(productService.getByKeyword(keyword).toString());
+	   model.addAttribute("products", listProduct);
+	  }else {
+	  List<DbProduct> listProduct = productService.getAll(true);
+	  model.addAttribute("products", listProduct);}
+	  return "/user/index";
+	 }
 	
 	// load product by brand name
 	@GetMapping("/brand/{name}")
