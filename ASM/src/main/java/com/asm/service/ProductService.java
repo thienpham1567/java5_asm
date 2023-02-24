@@ -27,7 +27,7 @@ public class ProductService implements DatabaseService<DbProduct>{
 
 	// update : update if found, otherwise insert
 	@Override
-	public DbProduct update(DbProduct product) {	
+	public DbProduct update(DbProduct product) {
 		return repo.save(product);
 	}
 

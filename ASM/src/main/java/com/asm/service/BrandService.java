@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.asm.entities.DbBrand;
+import com.asm.entities.DbProduct;
 import com.asm.interfaces.DatabaseService;
 import com.asm.repository.BrandRepository;
 import com.asm.repository.ProductRepository;
@@ -44,4 +45,13 @@ public class BrandService implements DatabaseService<DbBrand>{
 		}
 	}
 	
+	
+
+	public List<DbBrand> findByName(String name){
+		return repo.findByName(name);
+	}
+
+	public DbBrand getBrandById(int id){
+		return repo.getById(id);
+	}
 }
