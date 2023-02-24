@@ -67,15 +67,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and().authorizeRequests().antMatchers("*/user/**").hasRole("USER")
 //				.antMatchers("/","/register").permitAll()
 				.anyRequest().permitAll()
+//				.anyRequest().anonymous()
+//				.permitAll()
 			.and()
 				.formLogin()
 					.loginPage("/login")
-//					
 					.usernameParameter("email").passwordParameter("password")
-					.loginProcessingUrl("/admin/index")
+					.loginProcessingUrl("/")
+//					.permitAll()
 //					.defaultSuccessUrl("/");
 			.and()
-				.logout().logoutSuccessUrl("/").permitAll();
+				.logout().logoutSuccessUrl("/login").permitAll();
 	}
 //	@Override
 //	public void configure(WebSecurity web) throws Exception {

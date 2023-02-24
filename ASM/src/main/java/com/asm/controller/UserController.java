@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.asm.service.CookieService;
 import com.asm.service.UserService;
 
 import com.asm.webConfig.*;
@@ -22,6 +23,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private CookieService cookieService;
+	
 	@GetMapping("/login")
 	public String viewHomePage() {
 		return "security/login";
@@ -35,6 +39,12 @@ public class UserController {
 		}
 		return currentUser != null ? "redirect:/" : "redirect:/security/login";
 		
+	}
+	
+	@GetMapping("/logout")
+	public String logout(Model model) {
+		cookieService.remove("cookie");
+		return "/";
 	}
 
 	@GetMapping("/register")

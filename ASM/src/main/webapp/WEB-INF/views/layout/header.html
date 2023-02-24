@@ -23,9 +23,10 @@
 							th:href="@{'/brand/'+${brand.name}}" th:text="${brand.name}"></a></li>
 					</ul>
 				</div>
-				<form th:action="@{/search}" class="d-flex"  method="get">
-					<input class="form-control me-2" name="keyword" type="text" placeholder="Search"
-						aria-label="Search" size="50" th:value="${keyword}" style="width: 20rem" >
+				<form th:action="@{/search}" class="d-flex" method="get">
+					<input class="form-control me-2" name="keyword" type="text"
+						placeholder="Search" aria-label="Search" size="50"
+						th:value="${keyword}" style="width: 20rem">
 					<button class="btn btn-outline-success" type="submit">Search</button>
 				</form>
 
@@ -35,8 +36,10 @@
 			</h2>
 			<div class="col d-flex justify-content-end align-items-center gap-3">
 				<a th:href="@{'/login'}" class="text-black"><i
-					class="fa-regular fa-user"></i></a> <a ref="" class="text-black"><i
-					class="fa-regular fa-heart"></i></a> <a th:href="@{'/cart'}"
+					class="fa-regular fa-user"></i></a> 
+				<a th:href="@{'logout'}" class="text-black"><i
+					class="fa-regular fa-heart"></i></a> 
+				<a th:href="@{'/cart'}"
 					class="text-black"><svg xmlns="http://www.w3.org/2000/svg"
 						width="16" height="16" fill="currentColor" class="bi bi-bag"
 						viewBox="0 0 16 16">

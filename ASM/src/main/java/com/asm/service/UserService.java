@@ -50,7 +50,6 @@ public class UserService implements UserDetailsService, DatabaseService<DbUser> 
 				System.out.print(cookie.getValue());
 			}
 		}
-		
 		return isPasswordMatch ? user : null;
 	}
 
