@@ -29,4 +29,6 @@ public interface UserRepository extends JpaRepository<DbUser, Integer>{
 //	DbUser findByIdAndRole(String id, String role);
 //	
 //	void deleteById(String id);
+	
+
 }

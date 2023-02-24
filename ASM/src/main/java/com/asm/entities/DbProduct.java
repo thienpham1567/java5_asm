@@ -17,10 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -43,15 +40,17 @@ public class DbProduct implements Serializable{
 	@Column(name = "Created")
 	Date created = new Date();
 	
-	boolean isAvailable;
+	boolean isAvailable = true;
+	
+//	int brandId;;
 	
 	@ManyToOne
-	@JoinColumn(name = "BrandId")
+	@JoinColumn(name = "BrandId", referencedColumnName = "BrandId")
 	DbBrand brand;
 	
 	@OneToMany(mappedBy = "product")
 	List<DbOrderDetail> orderDetails;
-
+	
 	public int getProductId() {
 		return productId;
 	}
@@ -123,4 +122,6 @@ public class DbProduct implements Serializable{
 	public void setOrderDetails(List<DbOrderDetail> orderDetails) {
 		this.orderDetails = orderDetails;
 	}
+
+	
 }

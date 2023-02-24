@@ -1,6 +1,10 @@
 package com.asm.webConfig;
 
+import org.apache.catalina.connector.Connector;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -23,7 +27,7 @@ public class SpringWebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/webjars/**", "/css/**", "/img/**", "/js/**","/css_admin/**", "/img_admin/**", "/scc/**", "/vendor/**").addResourceLocations(
+		registry.addResourceHandler("/webjars/**", "/css/**", "/img/**", "/js/**","/css_admin/**", "/img_admin/**", "/scc/**", "/vendor/**", "/admin/img/**", "/admin/**").addResourceLocations(
 				"classpath:/META-INF/resources/webjars/", "classpath:/static/css/", "classpath:/static/img/",
 				"classpath:/static/js/", "classpath:/static/css_admin/", "classpath:/static/img_admin/", "classpath:/static/js/",
 				"classpath:/static/scss/", "classpath:/static/vendor/");
@@ -65,5 +69,17 @@ public class SpringWebConfig implements WebMvcConfigurer {
 		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
 		viewResolver.setTemplateEngine(templateEngine());
 		return viewResolver;
+	}
+	
+	@Bean
+	public ConfigurableServletWebServerFactory webServerFactory() {
+	    TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
+	    factory.addConnectorCustomizers(new TomcatConnectorCustomizer() {
+	        @Override
+	        public void customize(Connector connector) {
+	            connector.setProperty("relaxedQueryChars", "|{}[]");
+	        }
+	    });
+	    return factory;
 	}
 }

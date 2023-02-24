@@ -10,4 +10,7 @@ import com.asm.entities.DbProduct;
 public interface ProductRepository extends JpaRepository<DbProduct, Integer>{
 	@Query(value = "select * from Brands b inner join Products p on b.BrandId = p.BrandId where b.Name = ?1", nativeQuery = true)
 	List<DbProduct> getAllProductByBrandName(String name);
+	
+//	@Query(value = "update Products set brandId=?, Created=?, image=?, inStock=?, isAvailable=?, name=?, price=? where productId=?", nativeQuery = true)
+//	List<DbProduct> up(int productId);
 }
